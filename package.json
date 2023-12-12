@@ -4,9 +4,9 @@
   "description": "Mern tutorial",
   "main": "index.js",
   "scripts": {
-    "server": "node backend/index.js",
-    "dev": "nodemon backend/index.js",
-    "client": "npm run dev --prefix frontend"
+    "server": "nodemon backend/index.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "npm run server && npm run client"
   },
   "keywords": [
     "backend",
@@ -21,7 +21,8 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.2"
+    "mongoose": "^8.0.2",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
