@@ -6,7 +6,9 @@ The 'Goals App' is a fullstack app with the following functionality
 * Register user
 * Login
 * View goals
+
 In addition, a logged in user can:
+
 * Create goals
 * Update goals
 * View goals
