@@ -29,9 +29,18 @@ const loginUser = asyncHandler(async (req, res) => {
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-  if (!name || !email || !password) {
+
+  if (!name) {
     res.status(400);
-    throw new Error("One or more required fields empty");
+    throw new Error("Name is required");
+  }
+  if (!email) {
+    res.status(400);
+    throw new Error("Email is required");
+  }
+  if (!password) {
+    res.status(400);
+    throw new Error("Password is required");
   }
 
   // check if user exits
