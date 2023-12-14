@@ -8,6 +8,7 @@ const User = require("../model/userModel");
 // @access Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  console.log("Email: ", email, "\nPassword: ", password);
   // check that user exist
   const user = await User.findOne({ email });
 
