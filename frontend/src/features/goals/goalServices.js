@@ -28,17 +28,17 @@ const editGoal = async (goalData, token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.put(API_URL + ":id", goalData, config);
+  const response = await axios.put(API_URL + id, goalData, config);
   return response.data;
 };
 
-const removeGoal = async (goalData, token) => {
+const removeGoal = async (goalId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.delete(API_URL + ":id", goalData, config);
+  const response = await axios.delete(API_URL + goalId, config);
   return response.data;
 };
 

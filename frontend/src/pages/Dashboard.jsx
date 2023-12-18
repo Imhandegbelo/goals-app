@@ -5,6 +5,8 @@ import GoalForm from "../component/GoalForm";
 import { getGoals, reset } from "../features/goals/goalSlice";
 import Spinner from "../component/Spinner";
 import { toast } from "react-toastify";
+import { FaRegTrashCan } from "react-icons/fa6";
+import GoalTile from "../component/GoalTile";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -47,12 +49,11 @@ export default function Dashboard() {
         {isLoading ? (
           <Spinner />
         ) : goals.length > 1 ? (
-          <ul>
+          <ul className="mx-auto md:w-2/5">
             {goals.map((goal) => (
-              <li key={goal._id}>
-                <p className="text-2xl">{goal.text}</p>
-                <small className="text-base"></small>
-              </li>
+              <GoalTile goal={goal} key={goal._id} />
+              // <li key={goal._id} className="my-2 bg-teal-50 relative p-1">
+              // </li>
             ))}
           </ul>
         ) : (
