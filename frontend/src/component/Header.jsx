@@ -13,6 +13,7 @@ export default function Header() {
     dispatch(reset());
     navigate("/login");
   };
+  
   return (
     <div>
       <nav className="h-[8vh] shadow-lg flex justify-between items-center px-6">

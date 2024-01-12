@@ -1,12 +1,11 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import GoalForm from "../component/GoalForm";
-import { getGoals, reset } from "../features/goals/goalSlice";
-import Spinner from "../component/Spinner";
 import { toast } from "react-toastify";
-import { FaRegTrashCan } from "react-icons/fa6";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getGoals, reset } from "../features/goals/goalSlice";
+import { useSelector, useDispatch } from "react-redux";
+import GoalForm from "../component/GoalForm";
 import GoalTile from "../component/GoalTile";
+import Spinner from "../component/Spinner";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -16,9 +15,13 @@ export default function Dashboard() {
     (state) => state.goals
   );
 
-  useEffect(() => {
-    // const loadGoals = setTimeout(dispatch(getGoals()), 2000);
+  useEffect(()=>{
+    if (user){
+      dispatch(reset())
+    }
+  },[user,dispatch])
 
+  useEffect(() => {
     if (isError) {
       toast.error(message);
     }
@@ -26,11 +29,7 @@ export default function Dashboard() {
       navigate("/login");
     }
     dispatch(getGoals());
-    console.log(goals);
 
-    return () => {
-      dispatch(reset());
-    };
   }, [user, navigate, isError, message, dispatch]);
 
   return (
@@ -52,8 +51,6 @@ export default function Dashboard() {
           <ul className="mx-auto md:w-2/5">
             {goals.map((goal) => (
               <GoalTile goal={goal} key={goal._id} />
-              // <li key={goal._id} className="my-2 bg-teal-50 relative p-1">
-              // </li>
             ))}
           </ul>
         ) : (

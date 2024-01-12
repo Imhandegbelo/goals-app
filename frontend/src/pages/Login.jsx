@@ -76,6 +76,7 @@ export default function Register() {
                 <input
                   title="Email"
                   type="email"
+                  autoComplete="false"
                   className="w-full bg-teal-50 py-2 px-4 text-xl"
                   value={email}
                   name="email"
@@ -87,6 +88,7 @@ export default function Register() {
                 <input
                   title="Password"
                   type="password"
+                  autoComplete="false"
                   className="w-full bg-teal-50 py-2 px-4 text-xl"
                   value={password}
                   name="password"

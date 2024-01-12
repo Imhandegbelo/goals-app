@@ -14,7 +14,7 @@ export default function GoalTile({ goal }) {
           {new Date(goal.updatedAt).toLocaleString("en-US", "short")}
         </small>
         <button
-          className="absolute right-0 top-1"
+          className="absolute right-0 top-1 border border-transparent hover:border-teal-500 focuse:border-teal-500"
           title="Delete goal"
           aria-label={`Delete goal ${goal.text}`}
           onClick={() => dispatch(deleteGoal(goal._id))}
