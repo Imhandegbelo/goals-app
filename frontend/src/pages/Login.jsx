@@ -100,7 +100,13 @@ export default function Register() {
               <div className="mt-10 py-3">
                 <button className="flex gap-4 mx-auto items-center text-lg text-white py-3 px-20 bg-teal-500 border border-white rounded-l-full rounded-r-full hover:bg-teal-400 font-bold">
                   <FaUser />
-                  Login
+                  {isLoading? (
+                    <div className="bg-white rounded-full h-10 w-10">
+                      <div className="border-b border-teal-400 animate-spin h-full w-full"></div>
+                    </div>
+                  ):
+                  "Login"
+                  }
                 </button>
               </div>
             </form>
